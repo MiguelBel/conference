@@ -15,15 +15,15 @@ function initializeConference() {
 // Check Values
 function checkValues() {
 	myConferenceInstance.quota.call().then(
-		function(quota) { 
+		function(quota) {
 			$("input#confQuota").val(quota);
 			return myConferenceInstance.organizer.call();
 	}).then(
-		function(organizer) { 
+		function(organizer) {
 			$("input#confOrganizer").val(organizer);
-			return myConferenceInstance.numRegistrants.call(); 
+			return myConferenceInstance.numRegistrants.call();
 	}).then(
-		function(num) { 
+		function(num) {
 			$("#numRegistrants").html(num.toNumber());
 			return myConferenceInstance.organizer.call();
 	});
@@ -77,8 +77,8 @@ function refundTicket(buyerAddress, ticketPrice) {
 		function(result) {
 			if (result.toNumber() == 0) {
 				$("#refundTicketResult").html("Buyer is not registered - no refund!");
-			} else {		
-				myConferenceInstance.refundTicket(buyerAddress, 
+			} else {
+				myConferenceInstance.refundTicket(buyerAddress,
 					ticketPrice, {from: accounts[0]}).then(
 					function() {
 						return myConferenceInstance.numRegistrants.call();
@@ -94,7 +94,7 @@ function refundTicket(buyerAddress, ticketPrice) {
 							msgResult = "Refund failed";
 						}
 						$("#refundTicketResult").html(msgResult);
-					});	
+					});
 			}
 		});
 }
@@ -211,8 +211,8 @@ window.onload = function() {
 		var val = $("#password").val();
 		if (!val) {
 			$("#password").val("PASSWORD NEEDED").css("color", "red");
-			$("#password").click(function() { 
-				$("#password").val("").css("color", "black"); 
+			$("#password").click(function() {
+				$("#password").val("").css("color", "black");
 			});
 		} else {
 			createWallet(val);

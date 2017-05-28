@@ -1,0 +1,15 @@
+conference:
+  build: .
+  volumes:
+    - '.:/conference'
+  links:
+    - testrpc
+  ports:
+    - "8080:8080"
+  command: truffle serve
+
+testrpc:
+  image: harshjv/testrpc
+  ports:
+    - "8545:8545"
+  command: testrpc
