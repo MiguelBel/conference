@@ -36,6 +36,7 @@ Open `truffle.js` and put your ip in:
 Start the app with:
 
 ```
+docker-compose run conference truffle compile
 docker-compose up --build
 ```
 
